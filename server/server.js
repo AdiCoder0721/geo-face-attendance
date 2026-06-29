@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+
 import authRoutes from "./routes/authRoutes.js";
 import attendanceRoutes from "./routes/attendanceRoutes.js";
 import faceRoutes from "./routes/faceRoutes.js";
@@ -10,39 +11,46 @@ import adminRoutes from "./routes/adminRoutes.js";
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-// middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/face", faceRoutes);
 app.use("/api/admin", adminRoutes);
 
-// test route
+// Test route
 app.get("/", (req, res) => {
   res.send("API running...");
 });
 
-// return JSON 404 for unknown API routes
+// 404 handler
 app.use("/api", (req, res) => {
   res.status(404).json({ error: "API endpoint not found" });
 });
 
-// centralized error handler — always return JSON
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err);
-  const status = err.status || 500;
-  res.status(status).json({ error: err.message || "Internal Server Error" });
+  res.status(err.status || 500).json({
+    error: err.message || "Internal Server Error",
+  });
 });
 
-console.log(process.env.MONGO_URI);
+// Database Connection
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected");
 
-// DB connect
-mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-  console.log("MongoDB connected");
-  app.listen(5000, () => console.log("Server running on port 5000"));
-})
-.catch(err => console.log(err));
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB Connection Error:", err);
+  });
