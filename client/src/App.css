@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #020617;   /* dark bg remove white */
+}
+
+
+/* body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   margin: 0;
+  overflow-x: hidden;
+} */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+
+/* MODERN CARD DESIGN */
+.auth-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 3rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-container h1 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.auth-container h2 {
+  font-size: 1.8rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+/* INPUT WRAPPER FOR ICONS */
+.input-group {
+  position: relative;
+  margin-bottom: 1.2rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 2.8rem;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s;
+  background: #fff;
+  color: #333;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.button-secondary {
+  background: #f0f0f0 !important;
+  color: #667eea !important;
+  border: 1.5px solid #667eea !important;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: #f8f8f8 !important;
+}
+
+/* BUTTON GROUP */
+.button-group {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 140px;
+  margin: 0;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  color: #e74c3c;
+  background: #ffe8e8;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  border-left: 4px solid #e74c3c;
+}
+
+/* TEXT LINKS */
+.auth-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.auth-link button {
+  background: none !important;
+  color: #667eea !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: underline;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.auth-link button:hover {
+  color: #764ba2 !important;
+}
+
+/* VIDEO/FACE WRAPPER */
+.face-wrapper {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.face-wrapper video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.face-status {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+/* DASHBOARD/TABLES */
+.dashboard-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-header h2 {
+  color: #333;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.last-refresh {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  border: none;
+}
+
+table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+table tr:hover {
+  background: #f9f9f9;
+}
+
+/* WELCOME PAGE */
+.welcome-container {
+  text-align: center;
+  color: white;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.welcome-container p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.welcome-buttons button {
+  min-width: 200px;
+  padding: 1.2rem 2rem;
+  font-size: 1.05rem;
+  background: white;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.welcome-buttons button:hover {
+  background: #f0f0f0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .auth-container h2,
+  .auth-container h1 {
+    font-size: 1.5rem;
+  }
+
+  input {
+    padding: 0.9rem 0.9rem 0.9rem 2.6rem;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .auth-container {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .auth-container h2 {
+    font-size: 1.3rem;
+  }
+
+  input,
+  button {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .welcome-buttons button {
+    min-width: 160px;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
